@@ -1,5 +1,5 @@
 <!-- target page -->
-<%= turbo_stream_from "quotes" %>
+<%= turbo_stream_from current_company, "quotes" %>
 <main class="container">
   <%#= turbo_frame_tag "first_turbo_frame" do %> <!-- turbo frame tag with id -->
     <div class="header">
@@ -10,7 +10,8 @@
 
 <%= turbo_frame_tag Quote.new %>  <!-- empty turbo frame tag-->
 
-<%= turbo_frame_tag "quotes" do%>
+<%= turbo_frame_tag "quotes" do %>
+  <%= render "quotes/empty_state" %>
   <%= render @quotes %>
 <% end %>
 </main>    
